@@ -1120,6 +1120,7 @@ GameObject:
   - component: {fileID: 459962034}
   - component: {fileID: 459962033}
   - component: {fileID: 459962037}
+  - component: {fileID: 459962038}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1278,6 +1279,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   speed: 2
   target: {fileID: 0}
+--- !u!114 &459962038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459962032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376f0aaffc115bf4887ba73b2213fa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
+  damage: 10
+  attackCooldown: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1527,7 @@ GameObject:
   - component: {fileID: 649491077}
   - component: {fileID: 649491080}
   - component: {fileID: 649491081}
+  - component: {fileID: 649491082}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1669,6 +1685,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.21133333}
   m_Radius: 0.5
+--- !u!114 &649491082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649491075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c2998a88d3005439a55b1e48312e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &692845614
 GameObject:
   m_ObjectHideFlags: 0
