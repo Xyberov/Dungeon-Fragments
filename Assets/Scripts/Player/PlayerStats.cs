@@ -24,6 +24,7 @@ public class PlayerStats : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died!");
+        FindObjectOfType<GameOverUI>().ShowGameOver();
         gameObject.SetActive(false);
     }
 }
