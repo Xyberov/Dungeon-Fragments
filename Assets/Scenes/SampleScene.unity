@@ -1873,11 +1873,11 @@ GameObject:
   m_Component:
   - component: {fileID: 649491079}
   - component: {fileID: 649491078}
-  - component: {fileID: 649491077}
   - component: {fileID: 649491080}
   - component: {fileID: 649491081}
   - component: {fileID: 649491082}
   - component: {fileID: 649491083}
+  - component: {fileID: 649491084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1885,19 +1885,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &649491077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649491075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e3060a50d25754fa25607c2ade5c85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 5
 --- !u!212 &649491078
 SpriteRenderer:
   serializedVersion: 2
@@ -2071,6 +2058,23 @@ MonoBehaviour:
   arrowPrefab: {fileID: 5387523668284550069, guid: 8abbccc808b43df40bd9645d85e34131, type: 3}
   bowCooldown: 1
   arrowSpawnPoint: {fileID: 2132727198}
+--- !u!114 &649491084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649491075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e3060a50d25754fa25607c2ade5c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  speed: 5
+  stopDistance: 0.15
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &692845614
 GameObject:
   m_ObjectHideFlags: 0

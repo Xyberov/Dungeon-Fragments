@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Меч")]
     public float swordDamage = 25f;
     public float swordRange = 1.2f;
     public float swordCooldown = 0.5f;
     public LayerMask enemyLayer;
 
-    [Header("Лук")]
     public GameObject arrowPrefab;
     public float bowCooldown = 1f;
     public Transform arrowSpawnPoint;
@@ -24,17 +22,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        // Левая кнопка мыши меч
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Time.time - lastSwordTime >= swordCooldown)
-            {
-                SwordAttack();
-                lastSwordTime = Time.time;
-            }
-        }
-
-        // Правая кнопка мыши лук
+        //лук
         if (Input.GetMouseButtonDown(1))
         {
             if (Time.time - lastBowTime >= bowCooldown)
@@ -45,15 +33,19 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    void SwordAttack()
+    public void TrySwordAttack(Transform target)
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, swordRange, enemyLayer);
-
-        foreach (Collider2D hit in hits)
+        if (Time.time - lastSwordTime >= swordCooldown)
         {
-            hit.GetComponent<EnemyStats>()?.TakeDamage(swordDamage);
-            Debug.Log("Sword hit: " + hit.name);
+            SwordAttack(target);
+            lastSwordTime = Time.time;
         }
+    }
+
+    void SwordAttack(Transform target)
+    {
+        target.GetComponent<EnemyStats>()?.TakeDamage(swordDamage);
+        Debug.Log("Sword hit: " + target.name);
     }
 
     void BowAttack()
@@ -65,11 +57,5 @@ public class PlayerCombat : MonoBehaviour
 
         GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
         arrow.GetComponent<Arrow>().Init(direction);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, swordRange);
     }
 }
