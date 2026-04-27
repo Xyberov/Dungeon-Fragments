@@ -16,11 +16,14 @@ public class PlayerMovement : MonoBehaviour
     private bool hasTarget = false;
     private Vector2 movement;
 
+    private PlayerAnimator playerAnimator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         combat = GetComponent<PlayerCombat>();
+        playerAnimator = GetComponent<PlayerAnimator>();
     }
 
     void Update()
@@ -94,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         movement = (destination - (Vector2)transform.position).normalized;
+        playerAnimator.SetWalking(true);
     }
 
     void ClearTarget()
@@ -101,5 +105,6 @@ public class PlayerMovement : MonoBehaviour
         hasTarget = false;
         enemyTarget = null;
         movement = Vector2.zero;
+        playerAnimator.SetWalking(false);
     }
 }

@@ -15,9 +15,12 @@ public class PlayerCombat : MonoBehaviour
     private float lastBowTime;
     private Camera cam;
 
+    private PlayerAnimator playerAnimator;
+
     void Start()
     {
         cam = Camera.main;
+        playerAnimator = GetComponent<PlayerAnimator>();
     }
 
     void Update()
@@ -45,6 +48,7 @@ public class PlayerCombat : MonoBehaviour
     void SwordAttack(Transform target)
     {
         target.GetComponent<EnemyStats>()?.TakeDamage(swordDamage);
+        playerAnimator.PlayAttack();
         Debug.Log("Sword hit: " + target.name);
     }
 
@@ -57,5 +61,6 @@ public class PlayerCombat : MonoBehaviour
 
         GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
         arrow.GetComponent<Arrow>().Init(direction);
+        playerAnimator.PlayAttackBow();
     }
 }
