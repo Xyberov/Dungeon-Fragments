@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // движение
     public float speed = 5f;
-
     public float stopDistance = 0.15f;
     public LayerMask enemyLayer;
 
@@ -16,6 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private bool hasTarget = false;
     private Vector2 movement;
 
+    //рывок
+    public float dashSpeed = 20f;
+    public float dashDuration = 0.15f;
+    public float dashCooldown = 1f;
+
+    private bool isDashing = false;
+    private float dashTimer = 0f;
+    private float cooldownTimer = 0f;
+    private Vector2 dashDirection;
+
+    // анимация
     private PlayerAnimator playerAnimator;
 
     void Start()
@@ -33,6 +44,19 @@ public class PlayerMovement : MonoBehaviour
             HandleClick();
         }
 
+        cooldownTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space) && cooldownTimer <= 0f && !isDashing)
+        {
+            StartDash();
+        }
+
+        if (isDashing)
+        {
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0f) StopDash();
+        }
+
         if (hasTarget)
         {
             PursueTarget();
@@ -41,7 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        if (isDashing)
+            rb.MovePosition(rb.position + dashDirection * dashSpeed * Time.fixedDeltaTime);
+        else
+            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 
     void HandleClick()
@@ -106,5 +133,22 @@ public class PlayerMovement : MonoBehaviour
         enemyTarget = null;
         movement = Vector2.zero;
         playerAnimator.SetWalking(false);
+    }
+
+    void StartDash()
+    {
+        isDashing = true;
+        dashTimer = dashDuration;
+        cooldownTimer = dashCooldown;
+
+        ClearTarget();
+
+        Vector2 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        dashDirection = (worldPos - (Vector2)transform.position).normalized;
+    }
+
+    void StopDash()
+    {
+        isDashing = false;
     }
 }
