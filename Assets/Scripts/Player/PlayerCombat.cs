@@ -9,6 +9,8 @@ public class PlayerCombat : MonoBehaviour
 
     public GameObject arrowPrefab;
     public float bowCooldown = 1f;
+    public int maxArrows = 10;
+    private int currentArrows;
     public Transform arrowSpawnPoint;
 
     private float lastSwordTime;
@@ -21,6 +23,7 @@ public class PlayerCombat : MonoBehaviour
     {
         cam = Camera.main;
         playerAnimator = GetComponent<PlayerAnimator>();
+        currentArrows = maxArrows;
     }
 
     void Update()
@@ -54,7 +57,11 @@ public class PlayerCombat : MonoBehaviour
 
     void BowAttack()
     {
+        if (currentArrows <= 0) return;
         if (arrowPrefab == null || arrowSpawnPoint == null) return;
+
+        currentArrows--;
+        Debug.Log("Стрел осталось: " + currentArrows);
 
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - (Vector2)arrowSpawnPoint.position).normalized;
@@ -63,4 +70,11 @@ public class PlayerCombat : MonoBehaviour
         arrow.GetComponent<Arrow>().Init(direction);
         playerAnimator.PlayAttackBow();
     }
+
+    public void AddArrows(int amount)
+    {
+        currentArrows = Mathf.Min(currentArrows + amount, maxArrows);
+    }
+
+    public int GetArrows() => currentArrows;
 }

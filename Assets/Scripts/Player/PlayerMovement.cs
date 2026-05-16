@@ -29,12 +29,17 @@ public class PlayerMovement : MonoBehaviour
     // анимация
     private PlayerAnimator playerAnimator;
 
+    //стамина
+    private PlayerStamina stamina;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         combat = GetComponent<PlayerCombat>();
         playerAnimator = GetComponent<PlayerAnimator>();
+
+        stamina = GetComponent<PlayerStamina>();
     }
 
     void Update()
@@ -137,6 +142,8 @@ public class PlayerMovement : MonoBehaviour
 
     void StartDash()
     {
+        if (!stamina.TryUseStamina(stamina.dashCost)) return;
+
         isDashing = true;
         dashTimer = dashDuration;
         cooldownTimer = dashCooldown;
