@@ -16,6 +16,7 @@ public class SkeletonAI : MonoBehaviour
     private Rigidbody2D rb;
     private float lastShotTime;
 
+    private EnemyAnimator enemyAnimator;
     enum State { Chase, Attack, Retreat }
     private State state = State.Chase;
 
@@ -23,6 +24,7 @@ public class SkeletonAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
+        enemyAnimator = GetComponent<EnemyAnimator>();
     }
 
     void Update()
@@ -48,6 +50,7 @@ public class SkeletonAI : MonoBehaviour
 
             case State.Attack:
                 rb.linearVelocity = Vector2.zero;
+                enemyAnimator.SetWalking(false);
                 TryShoot();
                 break;
 
@@ -62,12 +65,14 @@ public class SkeletonAI : MonoBehaviour
     {
         Vector2 dir = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = dir * speed;
+        enemyAnimator.SetWalking(true);
     }
 
     void MoveAway(Vector2 target)
     {
         Vector2 dir = ((Vector2)transform.position - target).normalized;
         rb.linearVelocity = dir * speed;
+        enemyAnimator.SetWalking(true);
     }
 
     void TryShoot()
@@ -78,7 +83,7 @@ public class SkeletonAI : MonoBehaviour
         Vector2 dir = (player.position - arrowSpawnPoint.position).normalized;
         GameObject arrow = Instantiate(enemyArrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
         arrow.GetComponent<EnemyArrow>().Init(dir);
-
+        enemyAnimator.PlayAttack();
         lastShotTime = Time.time;
     }
 }

@@ -6,12 +6,15 @@ public class EnemyStats : MonoBehaviour
     public float damage = 10f;
     public float attackCooldown = 1f;
 
+    private EnemyAnimator enemyAnimator;
+
     private float lastAttackTime;
     private PlayerStats player;
 
     void Start()
     {
         currentHealth = maxHealth;
+        enemyAnimator = GetComponent<EnemyAnimator>();
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -30,6 +33,7 @@ public class EnemyStats : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        enemyAnimator.PlayHurt();
         Debug.Log("Enemy HP: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -38,7 +42,8 @@ public class EnemyStats : MonoBehaviour
 
     void Die()
     {
+        enemyAnimator.PlayDeath();
         Debug.Log("Enemy died!");
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 }

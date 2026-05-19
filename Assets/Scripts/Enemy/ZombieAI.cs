@@ -6,6 +6,8 @@ public class ZombieAI : MonoBehaviour
     public float detectionRange = 5f;
     public float loseRange = 8f;
 
+    private EnemyAnimator enemyAnimator;
+
     private Rigidbody2D rb;
     private Transform player;
     private bool isAggro = false;
@@ -14,6 +16,7 @@ public class ZombieAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
+        enemyAnimator = GetComponent<EnemyAnimator>();
     }
 
     void FixedUpdate()
@@ -32,10 +35,12 @@ public class ZombieAI : MonoBehaviour
         {
             Vector2 direction = (player.position - transform.position).normalized;
             rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+            enemyAnimator.SetWalking(true);
         }
         else
         {
             rb.linearVelocity = Vector2.zero;
+            enemyAnimator.SetWalking(false);
         }
     }
 }
