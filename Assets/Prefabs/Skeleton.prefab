@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   maxHealth: 50
-  currentHealth: 0
+  currentHealth: 50
   damage: 10
   attackCooldown: 1
 --- !u!114 &8423706291697242238
