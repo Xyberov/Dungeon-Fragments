@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float stopDistance = 0.15f;
     public LayerMask enemyLayer;
 
+    private bool wasChasing = false;
+
     private Rigidbody2D rb;
     private Camera cam;
     private PlayerCombat combat;
@@ -85,10 +87,12 @@ public class PlayerMovement : MonoBehaviour
         if (hit != null)
         {
             enemyTarget = hit.transform;
+            wasChasing = true;
         }
         else
         {
             enemyTarget = null;
+            wasChasing = false;
             moveTarget = worldPos;
         }
 
@@ -101,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (enemyTarget != null)
         {
-            if (!enemyTarget.gameObject.activeInHierarchy)
+            if (enemyTarget == null)
             {
                 ClearTarget();
                 return;
@@ -119,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            if (wasChasing) { ClearTarget(); return; }
             destination = moveTarget;
             float dist = Vector2.Distance(transform.position, destination);
 

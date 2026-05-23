@@ -30,5 +30,9 @@ public class EnemyArrow : MonoBehaviour
             other.GetComponent<PlayerStats>()?.TakeDamage(damage, transform.position);
             Destroy(gameObject);
         }
+        else if (other.CompareTag("Walls"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
