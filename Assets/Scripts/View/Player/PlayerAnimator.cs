@@ -4,6 +4,7 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator animator;
 
+    private Transform shadow;
     private SpriteRenderer spriteRenderer;
 
     void Start()
@@ -11,6 +12,7 @@ public class PlayerAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        shadow = transform.Find("Shadow");
 
         var stats = GetComponent<PlayerStats>();
         stats.Model.OnDamaged += PlayHurt;
@@ -25,7 +27,14 @@ public class PlayerAnimator : MonoBehaviour
     void FlipTowardsCursor()
     {
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        spriteRenderer.flipX = mouseWorld.x < transform.position.x;
+        bool lookLeft = mouseWorld.x < transform.position.x;
+        spriteRenderer.flipX = lookLeft;
+
+        if (shadow != null)
+        {
+            float offset = 0.12f;
+            shadow.localPosition = new Vector3(lookLeft ? -offset : offset, shadow.localPosition.y, 0);
+        }
     }
 
     public void SetWalking(bool isWalking)
