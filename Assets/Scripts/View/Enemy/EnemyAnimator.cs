@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class EnemyAnimator : MonoBehaviour
 {
     private Animator animator;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        var stats = GetComponent<EnemyStats>();
+        stats.Model.OnDamaged += PlayHurt;
+        stats.Model.OnDied += PlayDeath;
     }
 
     public void SetWalking(bool isWalking)
@@ -19,11 +23,6 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetTrigger("attack");
     }
 
-    public void PlayAttackBow()
-    {
-        animator.SetTrigger("attackBow");
-    }
-
     public void PlayHurt()
     {
         animator.SetTrigger("hurt");
@@ -34,3 +33,4 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetTrigger("death");
     }
 }
+

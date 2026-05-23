@@ -5,6 +5,12 @@ public class GameOverUI : MonoBehaviour
 {
     public GameObject gameOverPanel;
 
+    void Start()
+    {
+        var player = FindAnyObjectByType<PlayerStats>();
+        player.Model.OnDied += ShowGameOver;
+    }
+
     public void ShowGameOver()
     {
         gameOverPanel.SetActive(true);
