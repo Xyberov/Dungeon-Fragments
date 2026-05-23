@@ -24,4 +24,11 @@ public class PlayerModel
         if (CurrentHealth <= 0)
             OnDied?.Invoke();
     }
+
+    public void Heal(float amount)
+    {
+        CurrentHealth += amount;
+        if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
+        OnHealthChanged?.Invoke(CurrentHealth);
+    }
 }

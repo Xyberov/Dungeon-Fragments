@@ -7934,6 +7934,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Knockback
   force: 5
   duration: 0.15
+--- !u!114 &680535047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680535035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31bad3cc92bfd94b9c63740b0f4faf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPotion
+  startCount: 3
+  healAmount: 50
+  cooldown: 5
 --- !u!1 &692845614
 GameObject:
   m_ObjectHideFlags: 0
@@ -90848,6 +90863,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 680535036}
+    - targetCorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 680535047}
   m_SourcePrefab: {fileID: 100100000, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
