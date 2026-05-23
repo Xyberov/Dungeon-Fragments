@@ -20,12 +20,15 @@ public class EnemyStats : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player")) return;
         if (Time.time - lastAttackTime < attackCooldown) return;
 
-        collision.gameObject.GetComponent<PlayerStats>()?.TakeDamage(damage);
+        collision.gameObject.GetComponent<PlayerStats>()?.TakeDamage(damage, transform.position);
+
         lastAttackTime = Time.time;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 hitFrom = default)
     {
         Model.TakeDamage(damage);
+        GetComponent<Knockback>()?.Apply(hitFrom);
+        GetComponent<HitPause>()?.Pause(0.1f);
     }
 }

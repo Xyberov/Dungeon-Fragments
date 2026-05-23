@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GetComponent<Knockback>()?.IsKnockedBack == true) return;
         if (isDashing)
             rb.MovePosition(rb.position + dashDirection * dashSpeed * Time.fixedDeltaTime);
         else

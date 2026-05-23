@@ -7667,7 +7667,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 7.4895835
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7903,6 +7903,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 210524945135235115, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
   m_PrefabInstance: {fileID: 6522545817977278749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &680535035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+  m_PrefabInstance: {fileID: 6522545817977278749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &680535036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680535035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6245ad1433e89488db6bfe1bacb8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitPause
+--- !u!114 &680535037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680535035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd102589e70b94c4c9ecaed962f2a532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Knockback
+  force: 5
+  duration: 0.15
 --- !u!1 &692845614
 GameObject:
   m_ObjectHideFlags: 0
@@ -90810,7 +90841,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 680535037}
+    - targetCorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 680535036}
   m_SourcePrefab: {fileID: 100100000, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

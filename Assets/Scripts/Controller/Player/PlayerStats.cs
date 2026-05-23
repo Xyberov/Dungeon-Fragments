@@ -10,8 +10,10 @@ public class PlayerStats : MonoBehaviour
         Model = new PlayerModel(maxHealth);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 hitFrom = default)
     {
         Model.TakeDamage(damage);
+        GetComponent<HitPause>()?.Pause(0.1f);
+        GetComponent<Knockback>()?.Apply(hitFrom);
     }
 }

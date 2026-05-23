@@ -50,7 +50,7 @@ public class PlayerCombat : MonoBehaviour
 
     void SwordAttack(Transform target)
     {
-        target.GetComponent<EnemyStats>()?.TakeDamage(swordDamage);
+        target.GetComponent<EnemyStats>()?.TakeDamage(swordDamage, transform.position);
         playerAnimator.PlayAttack();
         Debug.Log("Sword hit: " + target.name);
     }

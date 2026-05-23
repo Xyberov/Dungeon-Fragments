@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 331894004298438909}
   - component: {fileID: -3630656452205195392}
   - component: {fileID: 7771245283565991537}
+  - component: {fileID: -6742821558919396254}
+  - component: {fileID: -6385104759601810550}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Enemy
@@ -169,7 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   maxHealth: 50
-  currentHealth: 50
   damage: 10
   attackCooldown: 1
 --- !u!114 &8423706291697242238
@@ -261,3 +262,29 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.71875
+--- !u!114 &-6742821558919396254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888756711768350378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6245ad1433e89488db6bfe1bacb8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitPause
+--- !u!114 &-6385104759601810550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888756711768350378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd102589e70b94c4c9ecaed962f2a532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Knockback
+  force: 5
+  duration: 0.15

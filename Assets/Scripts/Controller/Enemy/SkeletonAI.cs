@@ -29,6 +29,7 @@ public class SkeletonAI : MonoBehaviour
 
     void Update()
     {
+        if (GetComponent<Knockback>()?.IsKnockedBack == true) return;
         if (player == null) return;
 
         float dist = Vector2.Distance(transform.position, player.position);

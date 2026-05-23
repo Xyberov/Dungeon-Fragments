@@ -21,6 +21,7 @@ public class ZombieAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GetComponent<Knockback>()?.IsKnockedBack == true) return;
         if (player == null) return;
 
         float dist = Vector2.Distance(transform.position, player.position);

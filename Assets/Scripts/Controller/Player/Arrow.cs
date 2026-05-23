@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyStats>()?.TakeDamage(damage);
+            other.GetComponent<EnemyStats>()?.TakeDamage(damage, transform.position);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Walls"))

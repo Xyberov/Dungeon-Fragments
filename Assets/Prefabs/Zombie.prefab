@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 5921273891198571235}
   - component: {fileID: 5107742720576827621}
   - component: {fileID: 1609313667859976772}
+  - component: {fileID: 7583933734711018964}
+  - component: {fileID: -1997762915488332377}
   m_Layer: 6
   m_Name: Zombie
   m_TagString: Enemy
@@ -188,7 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   maxHealth: 100
-  currentHealth: 100
   damage: 10
   attackCooldown: 1
 --- !u!95 &5107742720576827621
@@ -225,3 +226,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c8791b417cb4e429b92ddb02d3d537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimator
+--- !u!114 &7583933734711018964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152477949432016870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6245ad1433e89488db6bfe1bacb8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitPause
+--- !u!114 &-1997762915488332377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152477949432016870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd102589e70b94c4c9ecaed962f2a532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Knockback
+  force: 5
+  duration: 0.15

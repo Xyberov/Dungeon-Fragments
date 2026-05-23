@@ -27,7 +27,7 @@ public class EnemyArrow : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerStats>()?.TakeDamage(damage);
+            other.GetComponent<PlayerStats>()?.TakeDamage(damage, transform.position);
             Destroy(gameObject);
         }
     }
