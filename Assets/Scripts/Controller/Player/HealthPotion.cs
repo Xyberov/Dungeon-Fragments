@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class HealthPotion : MonoBehaviour
@@ -5,6 +6,9 @@ public class HealthPotion : MonoBehaviour
     public int startCount = 3;
     public float healAmount = 30f;
     public float cooldown = 3f;
+
+    [SerializeField] private float flashDuration = 0.2f;
+    private SpriteRenderer spriteRenderer;
 
     public HealthPotionModel Model { get; private set; }
 
@@ -23,6 +27,7 @@ public class HealthPotion : MonoBehaviour
     {
         playerStats = GetComponent<PlayerStats>();
         audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -38,7 +43,16 @@ public class HealthPotion : MonoBehaviour
 
         playerStats.Model.Heal(healAmount);
         audioSource.PlayOneShot(healSound);
+        StartCoroutine(HealFlash());
         lastUseTime = Time.time;
         Debug.Log("Хилка использована, осталось: " + Model.Count);
     }
+
+    IEnumerator HealFlash()
+    {
+        spriteRenderer.color = Color.green;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.color = Color.white;
+    }
+
 }
