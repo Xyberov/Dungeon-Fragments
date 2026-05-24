@@ -6,6 +6,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private Transform shadow;
     private SpriteRenderer spriteRenderer;
+    private bool isDead = false;
 
     void Start()
     {
@@ -54,11 +55,14 @@ public class PlayerAnimator : MonoBehaviour
 
     public void PlayHurt()
     {
+        if (isDead) return;
         animator.SetTrigger("hurt");
     }
 
     public void PlayDeath()
     {
+        isDead = true;
+        animator.ResetTrigger("hurt");
         animator.SetTrigger("death");
     }
 }
