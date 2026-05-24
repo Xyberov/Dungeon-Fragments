@@ -13,6 +13,9 @@ public class ItemPickup : MonoBehaviour
         if (dropType == DropType.Arrow)
             other.GetComponent<PlayerCombat>()?.AddArrows(amount);
 
+        if (dropType == DropType.Coin)
+            other.GetComponent<PlayerCoins>()?.AddCoins(amount);
+
         Destroy(gameObject);
     }
 }
