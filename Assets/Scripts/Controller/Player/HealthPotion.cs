@@ -11,6 +11,9 @@ public class HealthPotion : MonoBehaviour
     private PlayerStats playerStats;
     private float lastUseTime = -99f;
 
+    [SerializeField] private AudioClip healSound;
+    private AudioSource audioSource;
+
     void Awake()
     {
         Model = new HealthPotionModel(startCount, healAmount, cooldown);
@@ -19,6 +22,7 @@ public class HealthPotion : MonoBehaviour
     void Start()
     {
         playerStats = GetComponent<PlayerStats>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -33,6 +37,7 @@ public class HealthPotion : MonoBehaviour
         if (!Model.TryUse()) return;
 
         playerStats.Model.Heal(healAmount);
+        audioSource.PlayOneShot(healSound);
         lastUseTime = Time.time;
         Debug.Log("Хилка использована, осталось: " + Model.Count);
     }

@@ -34,13 +34,20 @@ public class PlayerMovement : MonoBehaviour
     //стамина
     private PlayerStamina stamina;
 
+    //звуки
+    [SerializeField] private AudioClip dashSound;
+    [SerializeField] private AudioClip[] footstepSounds;
+    private AudioSource audioSource;
+    private float footstepTimer = 0f;
+    [SerializeField] private float footstepInterval = 0.35f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         combat = GetComponent<PlayerCombat>();
         playerAnimator = GetComponent<PlayerAnimator>();
-
+        audioSource = GetComponent<AudioSource>();
         stamina = GetComponent<PlayerStamina>();
     }
 
@@ -68,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
         {
             PursueTarget();
         }
+
+        HandleFootsteps();
     }
 
     void FixedUpdate()
@@ -158,10 +167,25 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
         dashDirection = (worldPos - (Vector2)transform.position).normalized;
+        audioSource.PlayOneShot(dashSound);
     }
 
     void StopDash()
     {
         isDashing = false;
+    }
+
+    void HandleFootsteps()
+    {
+        if (movement.magnitude > 0.1f || isDashing)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                int index = Random.Range(0, footstepSounds.Length);
+                audioSource.PlayOneShot(footstepSounds[index], 0.3f);
+                footstepTimer = footstepInterval;
+            }
+        }
     }
 }

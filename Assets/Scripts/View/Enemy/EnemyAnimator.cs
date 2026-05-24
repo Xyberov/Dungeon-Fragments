@@ -8,6 +8,8 @@ public class EnemyAnimator : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Transform player;
 
+    private bool isDead = false;
+
     [SerializeField] private float shadowOffset = 0.12f;
 
     void Start()
@@ -53,11 +55,14 @@ public class EnemyAnimator : MonoBehaviour
 
     public void PlayHurt()
     {
+        if (isDead) return;
         animator.SetTrigger("hurt");
     }
 
     public void PlayDeath()
     {
+        isDead = true;
+        animator.ResetTrigger("hurt");
         animator.SetTrigger("death");
     }
 }

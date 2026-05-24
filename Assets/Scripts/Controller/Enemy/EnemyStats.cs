@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -6,14 +7,26 @@ public class EnemyStats : MonoBehaviour
     public float damage = 10f;
     public float attackCooldown = 1f;
 
+    private bool isDead = false;
+
     public EnemyModel Model { get; private set; }
     private float lastAttackTime;
 
+    [SerializeField] private AudioClip deathSound;
+    private AudioSource audioSource;
+
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         Model = new EnemyModel(maxHealth);
-        Model.OnDied += () => Destroy(gameObject, 1f);
+        Model.OnDied += () => {
+            if (isDead) return;
+            isDead = true;
+            audioSource.PlayOneShot(deathSound);
+            Destroy(gameObject, 0.4f);
+        };
     }
+
 
     void OnCollisionStay2D(Collision2D collision)
     {

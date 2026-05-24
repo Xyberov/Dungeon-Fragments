@@ -20,11 +20,15 @@ public class SkeletonAI : MonoBehaviour
     enum State { Chase, Attack, Retreat }
     private State state = State.Chase;
 
+    [SerializeField] private AudioClip shootSound;
+    private AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
         enemyAnimator = GetComponent<EnemyAnimator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -80,6 +84,7 @@ public class SkeletonAI : MonoBehaviour
     {
         if (Time.time - lastShotTime < shootCooldown) return;
         if (enemyArrowPrefab == null || arrowSpawnPoint == null) return;
+        audioSource.PlayOneShot(shootSound);
 
         Vector2 dir = (player.position - arrowSpawnPoint.position).normalized;
         GameObject arrow = Instantiate(enemyArrowPrefab, arrowSpawnPoint.position, Quaternion.identity);

@@ -7667,7 +7667,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.8375
+  orthographic size: 7.5546875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8362,6 +8362,108 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2015944309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1451193637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+  m_PrefabInstance: {fileID: 6522545817977278749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1451193638
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451193637}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1498213411
 GameObject:
   m_ObjectHideFlags: 0
@@ -90763,6 +90865,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9779357106998331, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: dashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8219ef653ed4ff745aa2015a9f02e088, type: 3}
+    - target: {fileID: 9779357106998331, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: footstepSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9779357106998331, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: 'footstepSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c21c69d48b4179841bcf1f151a9dc27f, type: 3}
+    - target: {fileID: 9779357106998331, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: 'footstepSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a3dcb5af5d2bec4981c3cf46e1f43ab, type: 3}
+    - target: {fileID: 9779357106998331, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: 'footstepSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: df3b84c4c459a3b41922205c4157b781, type: 3}
+    - target: {fileID: 9779357106998331, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: 'footstepSounds.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4931710bf6bf4b840b2ea32be54ae707, type: 3}
+    - target: {fileID: 209497631259022469, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: damageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ed77a72560f4564eba65c0d3f039004, type: 3}
     - target: {fileID: 210524945135235115, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -90803,6 +90933,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1495773910079264230, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c4f5fc91a28e9949a5cff3e14db3843, type: 3}
+    - target: {fileID: 4036526988046737675, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: bowSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d8cc0ab8ffcc3647a1bf0b6384ffed5, type: 3}
+    - target: {fileID: 4036526988046737675, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      propertyPath: swordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e116b011d5246a46b5fb9761ed493a0, type: 3}
     - target: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
       propertyPath: m_Name
       value: Player
@@ -90810,7 +90952,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1451193638}
   m_SourcePrefab: {fileID: 100100000, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

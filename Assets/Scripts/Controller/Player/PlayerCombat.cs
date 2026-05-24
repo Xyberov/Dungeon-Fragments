@@ -19,9 +19,14 @@ public class PlayerCombat : MonoBehaviour
 
     private PlayerAnimator playerAnimator;
 
+    [SerializeField] private AudioClip swordSound;
+    [SerializeField] private AudioClip bowSound;
+    private AudioSource audioSource;
+
     void Start()
     {
         cam = Camera.main;
+        audioSource = GetComponent<AudioSource>();
         playerAnimator = GetComponent<PlayerAnimator>();
         currentArrows = maxArrows;
     }
@@ -51,6 +56,7 @@ public class PlayerCombat : MonoBehaviour
     void SwordAttack(Transform target)
     {
         target.GetComponent<EnemyStats>()?.TakeDamage(swordDamage, transform.position);
+        audioSource.PlayOneShot(swordSound);
         playerAnimator.PlayAttack();
         Debug.Log("Sword hit: " + target.name);
     }
@@ -69,6 +75,7 @@ public class PlayerCombat : MonoBehaviour
         GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
         arrow.GetComponent<Arrow>().Init(direction);
         playerAnimator.PlayAttackBow();
+        audioSource.PlayOneShot(bowSound);
     }
 
     public void AddArrows(int amount)
