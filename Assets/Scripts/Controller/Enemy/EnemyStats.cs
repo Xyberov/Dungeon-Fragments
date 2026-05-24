@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     public float attackCooldown = 1f;
 
     private bool isDead = false;
+    public bool IsDead => isDead;
 
     public EnemyModel Model { get; private set; }
     private float lastAttackTime;

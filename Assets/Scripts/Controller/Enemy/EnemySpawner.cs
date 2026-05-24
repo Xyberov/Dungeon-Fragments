@@ -3,16 +3,16 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    public Transform[] spawnPoints;  
+    public Transform[] spawnPoints;
 
-    private bool hasSpawned = false;
+    public bool HasSpawned { get; private set; }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (hasSpawned) return;
+        if (HasSpawned) return;
         if (!other.CompareTag("Player")) return;
 
-        hasSpawned = true;
+        HasSpawned = true;
         SpawnEnemies();
     }
 
