@@ -9,7 +9,7 @@ public class PlayerCombat : MonoBehaviour
 
     public GameObject arrowPrefab;
     public float bowCooldown = 1f;
-    public int maxArrows = 10;
+    public int maxArrows = 80;
     private int currentArrows;
     public Transform arrowSpawnPoint;
 
@@ -28,7 +28,7 @@ public class PlayerCombat : MonoBehaviour
         cam = Camera.main;
         audioSource = GetComponent<AudioSource>();
         playerAnimator = GetComponent<PlayerAnimator>();
-        currentArrows = maxArrows;
+        currentArrows = 20;
     }
 
     void Update()

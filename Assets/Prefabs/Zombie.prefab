@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7583933734711018964}
   - component: {fileID: -1997762915488332377}
   - component: {fileID: 6107203769017588818}
+  - component: {fileID: -7159034435371452106}
   m_Layer: 6
   m_Name: Zombie
   m_TagString: Enemy
@@ -353,6 +354,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7159034435371452106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152477949432016870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bc939364b668045ade42d0baa6324a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDrop
+  coinPrefab: {fileID: 8406396394558564934, guid: b3f4b758c8cead046b3e2466697b5e92, type: 3}
+  arrowPrefab: {fileID: 8434167474303915343, guid: 96a0538505b07854ea833e5970214f92, type: 3}
+  canDropArrows: 0
 --- !u!1 &3380971585715462782
 GameObject:
   m_ObjectHideFlags: 0

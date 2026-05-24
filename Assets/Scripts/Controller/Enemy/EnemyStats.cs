@@ -23,6 +23,7 @@ public class EnemyStats : MonoBehaviour
             if (isDead) return;
             isDead = true;
             audioSource.PlayOneShot(deathSound);
+            GetComponent<ItemDrop>()?.Drop();
             Destroy(gameObject, 0.4f);
         };
     }
