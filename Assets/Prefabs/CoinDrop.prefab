@@ -171,3 +171,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
   dropType: 1
   amount: 1
+  pickupSound: {fileID: 8300000, guid: 5a937ebc9041ba9408a5345e3a25ae0a, type: 3}
