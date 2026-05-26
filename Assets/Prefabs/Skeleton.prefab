@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376f0aaffc115bf4887ba73b2213fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  maxHealth: 50
-  damage: 10
+  maxHealth: 40
+  damage: 15
   attackCooldown: 1
   deathSound: {fileID: 8300000, guid: 6b0251d054a23a9499b55cc043f43ad9, type: 3}
 --- !u!114 &8423706291697242238

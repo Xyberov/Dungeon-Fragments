@@ -8744,7 +8744,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.953125
+  orthographic size: 6.9453125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9440,23 +9440,6 @@ MonoBehaviour:
   arrowText: {fileID: 148861803}
   coinIcon: {fileID: 216118381}
   coinText: {fileID: 1705624475}
---- !u!1 &716884775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
-  m_PrefabInstance: {fileID: 6522545817977278749}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &716884789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716884775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7fe8bc27982294e9c6b451fb03af65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCoins
 --- !u!1 &745024161
 GameObject:
   m_ObjectHideFlags: 0
@@ -94029,10 +94012,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4036526988046737675, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
-      propertyPath: maxArrows
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
       propertyPath: m_Name
       value: Player
@@ -94040,10 +94019,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7117699687132878453, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 716884789}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d93ed367f8bcc0e4a8d083f40a4f08ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

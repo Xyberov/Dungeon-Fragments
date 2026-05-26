@@ -14,6 +14,11 @@ public class PlayerStats : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        Model.Heal(1f * Time.deltaTime);
+    }
+
     public void TakeDamage(float damage, Vector2 hitFrom = default)
     {
         Model.TakeDamage(damage);

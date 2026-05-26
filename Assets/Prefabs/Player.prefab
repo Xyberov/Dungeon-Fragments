@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 58279347452333720}
   - component: {fileID: 1495773910079264230}
   - component: {fileID: 6477042694586235627}
+  - component: {fileID: 7324938708732087546}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -257,15 +258,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2f2d909c0b1f74ca419b52e2e30805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  swordDamage: 50
+  swordDamage: 30
   swordRange: 2
   swordCooldown: 0.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   arrowPrefab: {fileID: 5387523668284550069, guid: 8abbccc808b43df40bd9645d85e34131, type: 3}
-  bowCooldown: 1
-  maxArrows: 10
+  bowCooldown: 0.7
+  maxArrows: 80
   arrowSpawnPoint: {fileID: 9040757701399216366}
   swordSound: {fileID: 8300000, guid: 9e116b011d5246a46b5fb9761ed493a0, type: 3}
   bowSound: {fileID: 8300000, guid: 6d8cc0ab8ffcc3647a1bf0b6384ffed5, type: 3}
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e3060a50d25754fa25607c2ade5c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 5
+  speed: 4
   stopDistance: 0.15
   enemyLayer:
     serializedVersion: 2
@@ -402,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStamina
   maxStamina: 100
-  regenRate: 20
+  regenRate: 15
   regenDelay: 1
   dashCost: 25
 --- !u!114 &3388994928597486527
@@ -545,3 +546,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7324938708732087546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7117699687132878453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7fe8bc27982294e9c6b451fb03af65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCoins
